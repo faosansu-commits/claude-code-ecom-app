@@ -6,7 +6,6 @@ import {
   InstagramIcon,
   Location01Icon,
   Mail01Icon,
-  Store01Icon,
   TwitterIcon,
 } from "@hugeicons/core-free-icons"
 
@@ -35,15 +34,15 @@ const socialLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-muted/30">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
+    <footer className="border-t border-border bg-secondary/40">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div className="flex flex-col gap-4">
           <Link href="/" className="flex items-center gap-2">
-            <span className="flex size-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
-              <HugeiconsIcon icon={Store01Icon} strokeWidth={2} className="size-5" />
+            <span className="font-heading text-xl font-semibold tracking-tight text-foreground">
+              SHOP
             </span>
-            <span className="font-heading text-lg font-semibold text-foreground">
-              ShopSabai
+            <span className="font-heading text-xl font-light tracking-tight text-muted-foreground">
+              SABAI
             </span>
           </Link>
           <p className="max-w-xs text-sm text-muted-foreground">
