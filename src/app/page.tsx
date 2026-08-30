@@ -54,7 +54,7 @@ function StarRating({ rating }: { rating: number }) {
           fill="currentColor"
           className={cn(
             "size-3.5",
-            i < Math.round(rating) ? "text-foreground" : "text-border"
+            i < Math.round(rating) ? "text-tertiary" : "text-border"
           )}
         />
       ))}
@@ -134,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* Brand strip */}
-      <section className="border-y border-border bg-secondary/30">
+      <section className="border-y border-border bg-muted">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-10 gap-y-4 px-4 py-8 sm:px-6">
           <p className="w-full text-center text-xs font-medium tracking-widest text-muted-foreground uppercase sm:w-auto sm:text-left">
             แบรนด์ที่เราจำหน่าย
@@ -204,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* Featured products */}
-      <section id="featured" className="border-t border-border bg-secondary/30">
+      <section id="featured" className="border-t border-border bg-muted">
         <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <div className="mb-8 flex items-end justify-between">
             <div>
@@ -223,7 +223,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
-              <Card key={product.id} size="sm" className="overflow-hidden shadow-none ring-1 ring-border">
+              <Card
+                key={product.id}
+                size="sm"
+                className="overflow-hidden shadow-none transition-all duration-200 hover:-translate-y-[3px] hover:border-border hover:shadow-product-hover"
+              >
                 <div className="relative aspect-[4/3] bg-muted">
                   <Image
                     src={product.image}
@@ -247,7 +251,7 @@ export default function Home() {
                       {product.name}
                     </h3>
                     <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <HugeiconsIcon icon={StarIcon} strokeWidth={0} fill="currentColor" className="size-3.5 text-amber-500" />
+                      <HugeiconsIcon icon={StarIcon} strokeWidth={0} fill="currentColor" className="size-3.5 text-tertiary" />
                       {product.rating}
                     </span>
                   </div>
@@ -289,7 +293,7 @@ export default function Home() {
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {testimonials.map((testimonial) => (
-            <Card key={testimonial.name} className="shadow-none ring-1 ring-border">
+            <Card key={testimonial.name}>
               <CardContent className="flex h-full flex-col gap-4">
                 <StarRating rating={testimonial.rating} />
                 <p className="flex-1 text-sm leading-6 text-foreground">

@@ -73,7 +73,7 @@ export function SiteHeader() {
             <Button variant="ghost" size="icon" className="relative" aria-label="ตะกร้าสินค้า">
               <HugeiconsIcon icon={ShoppingCart01Icon} strokeWidth={1.75} />
               {CART_ITEM_COUNT > 0 && (
-                <Badge className="absolute -top-1 -right-1 h-4.5 min-w-4.5 justify-center px-1 text-[10px]">
+                <Badge className="absolute -top-1 -right-1 h-4.5 min-w-4.5 justify-center rounded-full px-1 text-[10px]">
                   {CART_ITEM_COUNT}
                 </Badge>
               )}
