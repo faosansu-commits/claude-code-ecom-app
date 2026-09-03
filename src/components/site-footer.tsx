@@ -1,15 +1,10 @@
 import Link from "next/link"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  Call02Icon,
-  Facebook01Icon,
-  InstagramIcon,
-  Location01Icon,
-  Mail01Icon,
-  TwitterIcon,
-} from "@hugeicons/core-free-icons"
+import { Call02Icon, Location01Icon, Mail01Icon } from "@hugeicons/core-free-icons"
 
 import { Separator } from "@/components/ui/separator"
+import { Logo } from "@/components/logo"
+import { SocialLinks } from "@/components/social-links"
 
 const linkColumns = [
   {
@@ -22,44 +17,33 @@ const linkColumns = [
   },
   {
     title: "บริษัท",
-    links: ["เกี่ยวกับเรา", "ร่วมงานกับเรา", "ติดต่อเรา", "นโยบายความเป็นส่วนตัว"],
+    links: [
+      "เกี่ยวกับเรา",
+      "ร่วมงานกับเรา",
+      "ติดต่อเรา",
+      "นโยบายความเป็นส่วนตัว",
+      "ข้อกำหนดการใช้งาน",
+    ],
   },
 ]
 
-const socialLinks = [
-  { icon: Facebook01Icon, label: "Facebook" },
-  { icon: InstagramIcon, label: "Instagram" },
-  { icon: TwitterIcon, label: "Twitter" },
-]
+// The footer's "ติดต่อเรา" link is the only one wired to a real route so far.
+const linkHrefOverrides: Record<string, string> = {
+  ติดต่อเรา: "/contact",
+}
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-muted">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div className="flex flex-col gap-4">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="font-heading text-xl font-semibold tracking-tight text-foreground">
-              SHOP
-            </span>
-            <span className="font-heading text-xl font-light tracking-tight text-muted-foreground">
-              SABAI
-            </span>
+          <Link href="/" className="flex items-center">
+            <Logo />
           </Link>
           <p className="max-w-xs text-sm text-muted-foreground">
-            ร้านค้าออนไลน์สำหรับคนรักเทคโนโลยี ส่งไว ของแท้ทุกชิ้น พร้อมบริการหลังการขายตลอด 24 ชั่วโมง
+            มาร์เก็ตเพลสออนไลน์ที่รวมร้านค้ากว่าพันร้านและสินค้ากว่า 50 หมวดหมู่ไว้ในที่เดียว ส่งไว ของแท้ทุกชิ้น พร้อมบริการหลังการขายตลอด 24 ชั่วโมง
           </p>
-          <div className="flex items-center gap-2">
-            {socialLinks.map((social) => (
-              <Link
-                key={social.label}
-                href="#"
-                aria-label={social.label}
-                className="flex size-9 items-center justify-center rounded-full bg-background text-muted-foreground ring-1 ring-border transition-colors hover:text-foreground"
-              >
-                <HugeiconsIcon icon={social.icon} strokeWidth={2} className="size-4" />
-              </Link>
-            ))}
-          </div>
+          <SocialLinks />
         </div>
 
         {linkColumns.map((column) => (
@@ -71,7 +55,7 @@ export function SiteFooter() {
               {column.links.map((link) => (
                 <li key={link}>
                   <Link
-                    href="#"
+                    href={linkHrefOverrides[link] ?? "#"}
                     className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {link}
@@ -86,11 +70,11 @@ export function SiteFooter() {
       <Separator />
 
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
-        <p>© {new Date().getFullYear()} ShopSabai. สงวนลิขสิทธิ์ทุกประการ</p>
+        <p>© {new Date().getFullYear()} JHOOWA. สงวนลิขสิทธิ์ทุกประการ</p>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
           <span className="flex items-center gap-1.5">
             <HugeiconsIcon icon={Mail01Icon} strokeWidth={2} className="size-4" />
-            support@shopsabai.co.th
+            support@jhoowa.co.th
           </span>
           <span className="flex items-center gap-1.5">
             <HugeiconsIcon icon={Call02Icon} strokeWidth={2} className="size-4" />

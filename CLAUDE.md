@@ -19,6 +19,16 @@ This is a from-scratch `create-next-app` project (App Router, TypeScript, Tailwi
 - Tailwind v4 is wired through `@tailwindcss/postcss` (`postcss.config.mjs`) rather than a `tailwind.config.*` file — theme customization belongs in `globals.css` via `@theme`/CSS variables, not a JS config.
 - `next.config.ts` is currently empty — add config options there as needed.
 
+## Environment variables
+
+The contact form (`/contact`) sends email via [Resend](https://resend.com). Set these server-only vars (no `NEXT_PUBLIC_` prefix — `.env*` is gitignored, no `.env.example` is committed):
+
+| Variable | Example |
+|---|---|
+| `RESEND_API_KEY` | `re_xxxxxxxx` |
+| `CONTACT_FROM_EMAIL` | `JHOOWA <noreply@yourdomain.com>` (use `onboarding@resend.dev` in development) |
+| `CONTACT_TO_EMAIL` | `support@jhoowa.co.th` |
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know
